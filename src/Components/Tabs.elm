@@ -100,6 +100,7 @@ update applyContext updateItem action state =
             |> SelectionList.indexedMap (\index -> applyContext (getContext index state'))
       in
           { state' |  items <- items' }
+          |> update applyContext updateItem (Select (SelectionList.selectedIndex state.items))
 
 
     Select index ->
