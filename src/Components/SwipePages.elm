@@ -6,7 +6,6 @@ import Html.Events
 import Helper exposing (..)
 import SelectionList exposing (SelectionList)
 import Spring exposing (Spring)
-import Debug
 
 type alias State pageState =
   { pages : SelectionList pageState
@@ -245,37 +244,6 @@ fromDragAction state action =
 
       else
         NoOp
-
-{-}
-    Press x ->
-      { state | isPressed   <- True
-              , lastPressed <- x
-      }
-
-    Move x ->
-      if state.isPressed
-      then
-        let
-            delta =
-              state.lastPressed - x
-
-            index =
-              SelectionList.selectedIndex state.pages
-
-            offset =
-              toFloat index * state.size.x + delta
-
-        in
-            state
-            |> update applyContext updateItem (SetOffset offset)
-      else
-        state
-
-
-    Release x ->
-      if state.isPressed
-
--}
 
 
 

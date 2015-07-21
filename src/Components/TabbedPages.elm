@@ -10,8 +10,6 @@ import Color exposing (Color)
 import Components.Tabs as Tabs
 import Components.SwipePages as Pages
 
-import Debug
-
 type alias State tabState pageState =
   { tabs  : Tabs.State tabState
   , pages : Pages.State pageState
